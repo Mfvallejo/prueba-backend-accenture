@@ -1,0 +1,37 @@
+package com.test.backend.DTO;
+
+public class Producto {
+
+	private Integer id;
+	private String nombre;
+	private Double valor;
+	
+	public Producto(Integer id, String nombre, Double valor) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.valor = valor;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Double getValor() {
+		return valor;
+	}
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", valor=" + valor + "]";
+	}
+}
