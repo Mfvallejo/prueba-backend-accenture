@@ -63,7 +63,12 @@ public class FacturaDAO {
 		Factura factura = findOne(idFactura);
 		PedidoDAO pedidos = new PedidoDAO();
 		Pedido pedido = pedidos.findOne(factura.getIdPedido());
-		factura.setValorNeto(pedido.getValor()+pedido.getValorDomicilio());
+		if(!pedido.getEstado().equals("CANCELADO")) {
+			factura.setValorNeto(pedido.getValor()+pedido.getValorDomicilio());
+		}
+		else {
+			factura.setValorNeto(pedido.getValor());
+		}
 		Double d = (pedido.getValor()-(pedido.getValor()/1.19));
 		Double iva = Math.round(d*100.0)/100.0;
 		factura.setIva(iva);

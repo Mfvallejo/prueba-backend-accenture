@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "03f3b67e-ce5c-49c0-9efd-e8be1d5f5818",
+		"name": "Pruebas-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/clientes/2/pedidos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"fecha\": \"2021-02-06T19:10:31.707+00:00\",\r\n        \"productos\": [\r\n            {\r\n                \"id\": 6,\r\n                \"nombre\": \"Camiseta\",\r\n                \"valor\": 55000.0\r\n            }\r\n        ],\r\n        \"valor\": 80000.0,\r\n        \"idcliente\": 4,\r\n        \"estado\": \"ACEPTADO\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/2/pedidos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"2",
+						"pedidos"
+					]
+				},
+				"description": "En esta requerimiento se agrega un producto al pedido y supera el valor de los 100 mil modificnado el valor de domicilio"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/facturas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/facturas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"facturas"
+					]
+				},
+				"description": "En este se observa luego de hacer el requesta anterior como se modifica el valor de la factura"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes/2/pedidos/4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clientes/2/pedidos/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"2",
+						"pedidos",
+						"4"
+					]
+				},
+				"description": "En este se prueba como al tener mas de 12 horas de creado el pedido se modifica el estado a cancelado y se cambia el valor de la factura"
+			},
+			"response": []
+		}
+	]
+}

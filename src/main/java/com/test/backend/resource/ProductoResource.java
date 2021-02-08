@@ -21,17 +21,27 @@ public class ProductoResource {
 	@Autowired
 	private ProductoDAO DAO;
 
-
+	/**
+	 * Retorna los productos
+	 * @return List<Producto>
+	 */
 	@GetMapping("/productos")
 	public List<Producto> getProductos(){
 		return DAO.findProductos();
 	}
 
+	/**
+	 * Retorna el producto por id
+	 * @return Producto
+	 */
 	@GetMapping("/productos/{id}")
 	public Producto getProductoId(@PathVariable int id) {
 		return DAO.findOne(id);
 	}
 
+	/**
+	 * Agrega un producto
+	 */
 	@PostMapping("/productos")
 	public ResponseEntity<Object> addProducto(@RequestBody Producto producto){
 		DAO.addProducto(producto);

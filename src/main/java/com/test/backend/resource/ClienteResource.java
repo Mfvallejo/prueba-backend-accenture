@@ -22,18 +22,28 @@ public class ClienteResource {
 	@Autowired
 	private ClienteDAO DAO;
 
-
+	/**
+	 * Retorna los clientes
+	 * @return List<Clientes>
+	 */
 	@GetMapping("/clientes")
 	public List<Cliente> getClientes(){
 		return DAO.findClientes();
 	}
 
+	/**
+	 * Retorna el cliente
+	 * @return Cliente
+	 */
 	@GetMapping("/clientes/{id}")
 	public Cliente getClienteId(@PathVariable int id) {
 		return DAO.findOne(id);
 
 	}
 
+	/**
+	 * Agrega un cliente
+	 */
 	@PostMapping("/clientes")
 	public ResponseEntity<Object> addCliente(@RequestBody Cliente cliente){
 		DAO.addCliente(cliente);
@@ -41,11 +51,14 @@ public class ClienteResource {
 		return ResponseEntity.created(location).build();
 	}
 
+	/**
+	 * Elimina un cliente por id
+	 */
 	@DeleteMapping("/clientes/{id}")
 	public void deleteCLiente(@PathVariable int id) {
 		Cliente cliente = DAO.deleteOne(id);
 		if(cliente==null) {
-
+			//TODO
 		}
 	}
 

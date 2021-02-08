@@ -76,6 +76,7 @@ public class PedidoDAO {
 					pedido.setEstado("CANCELADO");
 					double nuevoValor = (pedido.getValor()*10)/100;
 					pedido.setValor(nuevoValor);
+					confirmar(idCliente, idPedido);
 				}
 				else {
 					iterator.remove();
